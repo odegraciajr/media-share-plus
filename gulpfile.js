@@ -6,6 +6,7 @@ const minify = require('gulp-minify')
 const fs = require('fs-extra')
 const uploadsRaw = 'app/temp/'
 const uploadDir = 'app/uploads/'
+const concat = require('gulp-concat')
 
 gulp.task('clean:app', function () {
   return gulp.src('app/*.*', {read: false})
@@ -40,10 +41,15 @@ gulp.task('public:js', () => {
   .pipe(gulp.dest('public'))
 })
 
+gulp.task('public:css', () => {
+  return gulp.src('src/css/*.css')
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('public'))
+})
 gulp.task('default', () => {
-  runSequence(['public-js', 'main:app'])
+  runSequence(['public:css', 'public:js', 'main:app'])
 })
 
 gulp.task('build', () => {
-  runSequence(['clean:app', 'create:folders', 'public:js', 'main:app'])
+  runSequence(['clean:app', 'create:folders', 'public:css', 'public:js', 'main:app'])
 })
