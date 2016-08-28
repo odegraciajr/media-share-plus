@@ -1,18 +1,23 @@
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const runSequence = require('run-sequence')
-const del = require('del')
 const clean = require('gulp-clean')
+const minify = require('gulp-minify')
+const fs = require('fs-extra')
+const uploadsRaw = 'app/temp/'
+const uploadDir = 'app/uploads/'
 
-/*  gulp.task('clean', () => {
-return del.sync('app/')
-})  */
-gulp.task('clean', function () {
+gulp.task('clean:app', function () {
   return gulp.src('app/*.*', {read: false})
   .pipe(clean())
 })
-// Create an es6 task
-gulp.task('es6', () => {
+
+gulp.task('create:folders', function () {
+  fs.mkdirs(uploadsRaw)
+  fs.mkdirs(uploadDir)
+})
+
+gulp.task('main:app', () => {
   return gulp.src('src/app.js')
   .pipe(babel({
     presets: ['es2015-node4']
@@ -20,7 +25,25 @@ gulp.task('es6', () => {
   .pipe(gulp.dest('app'))
 })
 
+gulp.task('public:js', () => {
+  return gulp.src('src/js/*.js')
+  .pipe(babel({
+    presets: ['es2015-node4']
+  }))
+  .pipe(minify({
+    ext: {
+      src: '-debug.js',
+      min: '.js'
+    },
+    compress: true
+  }))
+  .pipe(gulp.dest('public'))
+})
+
 gulp.task('default', () => {
-  // gulp.watch('src/app.js', ['es6'])
-  runSequence(['clean', 'es6'])
+  runSequence(['public-js', 'main:app'])
+})
+
+gulp.task('build', () => {
+  runSequence(['clean:app', 'create:folders', 'public:js', 'main:app'])
 })
