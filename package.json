@@ -1,0 +1,27 @@
+{
+  "name": "media-share-plus",
+  "version": "0.1.0",
+  "description": "Share photos and videos on social media sites. You can also resize and add watermark to your media and add filters.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "main": "/public/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odegraciajr/media-share-plus.git"
+  },
+  "keywords": [
+    "facebook",
+    "twitter",
+    "instagram",
+    "ffmpeg",
+    "nodejs",
+    "imagemagick"
+  ],
+  "author": "Oscar De Gracia Jr <odegraciajr@gmail.com> (http://tiltlab.xyz)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/odegraciajr/media-share-plus/issues"
+  },
+  "homepage": "https://github.com/odegraciajr/media-share-plus#readme"
+}
