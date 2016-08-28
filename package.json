@@ -4,7 +4,9 @@
   "description": "Share photos and videos on social media sites. You can also resize and add watermark to your media and add filters.\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[3~\u001b[3~\u001b[3~\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
   "main": "/public/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
+    "start": "npm run build && node app/app.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,28 @@
   "bugs": {
     "url": "https://github.com/odegraciajr/media-share-plus/issues"
   },
-  "homepage": "https://github.com/odegraciajr/media-share-plus#readme"
+  "homepage": "https://github.com/odegraciajr/media-share-plus#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "del": "^2.2.2",
+    "eslint": "^3.4.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "run-sequence": "^1.2.2",
+    "semistandard": "^8.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "fluent-ffmpeg": "^2.1.0",
+    "fs-extra": "^0.30.0",
+    "gm": "^1.23.0",
+    "lodash": "^4.15.0",
+    "multer": "^1.2.0"
+  }
 }
