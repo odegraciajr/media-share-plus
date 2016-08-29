@@ -2,7 +2,6 @@ const gulp = require('gulp')
 const babel = require('gulp-babel')
 const runSequence = require('run-sequence')
 const clean = require('gulp-clean')
-const minify = require('gulp-minify')
 const fs = require('fs-extra')
 const uploadsRaw = 'app/temp/'
 const uploadDir = 'app/uploads/'
@@ -31,13 +30,6 @@ gulp.task('public:js', () => {
   .pipe(babel({
     presets: ['es2015-node4']
   }))
-  .pipe(minify({
-    ext: {
-      src: '-debug.js',
-      min: '.js'
-    },
-    compress: true
-  }))
   .pipe(gulp.dest('public'))
 })
 
@@ -46,10 +38,16 @@ gulp.task('public:css', () => {
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('public'))
 })
+
 gulp.task('default', () => {
-  runSequence(['public:css', 'public:js', 'main:app'])
+  runSequence(['public:css', 'public:js', 'main:app', 'watch'])
 })
 
 gulp.task('build', () => {
   runSequence(['clean:app', 'create:folders', 'public:css', 'public:js', 'main:app'])
+})
+
+gulp.task('watch', () => {
+  gulp.watch('src/js/*.js', ['public:js'])
+  gulp.watch('src/css/*.css', ['public:css'])
 })
